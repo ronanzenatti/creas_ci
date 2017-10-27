@@ -23,9 +23,10 @@ class Welcome extends CI_Controller
     {
         $dados = array(
             'page_title' => 'CodeIgniter com Blade Template Engine!',
-            'page_content' => 'Esse é um exemplo do CodeIgniter com Blade Template Engine'
+            'page_content' => 'Esse é um exemplo do CodeIgniter com Blade Template Engine',
+            'message' => ""
         );
 
-        $this->blade->view('template/template', $dados);
+        $this->blade->view('auth/login', $dados);
     }
 }
