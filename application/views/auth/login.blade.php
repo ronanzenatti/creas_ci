@@ -27,35 +27,34 @@
 </head>
 <body class="light-skin blank">
 
-<div id="infoMessage"><?php echo $message; ?></div>
+<div id="infoMessage"><?php echo isset($message) ? $message : null; ?>1</div>
 
 <div class="login-container">
     <div class="row">
         <div class="col-md-12">
             <div class="text-center m-b-md">
-                <h3>PLEASE LOGIN TO APP</h3>
-                <small>This is the best app ever!</small>
+                <h3>CREAS</h3>
+                <small>Centro de Referência Especializado de Assistência Social</small>
             </div>
             <div class="hpanel">
                 <div class="panel-body">
-                    <form action="#" id="loginForm">
+                    <form action="{{site_url('auth/login')}}" id="loginForm" method="post" accept-charset="utf-8">
                         <div class="form-group">
-                            <label class="control-label" for="username">Username</label>
-                            <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
-                            <span class="help-block small">Your unique username to app</span>
+                            <label class="control-label" for="username">E-mail</label>
+                            <input type="text" placeholder="digite seu e-mail" title="Please enter you username"
+                                   required="" name="identity" value="" id="identity" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="password">Password</label>
-                            <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                            <span class="help-block small">Yur strong password</span>
+                            <label class="control-label" for="password">Senha</label>
+                            <input type="password" title="digite sua senha" placeholder="******" required=""
+                                   name="password" value="" id="password" class="form-control">
                         </div>
                         <div class="checkbox">
-                            <input type="checkbox" class="i-checks" checked>
-                            Remember login
-                            <p class="help-block small">(if this is a private computer)</p>
+                            <input type="checkbox" class="i-checks" name="remember" value="1" id="remember">
+                            Permanecer conectado
+                            <p class="help-block small">(somente em computadores pessoais)</p>
                         </div>
                         <button class="btn btn-success btn-block">Login</button>
-                        <a class="btn btn-default btn-block" href="#">Register</a>
                     </form>
                 </div>
             </div>
@@ -63,7 +62,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            <strong>HOMER</strong> - AngularJS Responsive WebApp <br/> 2015 Copyright Company Name
+            Desenvolvido por <br/> <strong>ETEC Ibitinga</strong>
         </div>
     </div>
 </div>
