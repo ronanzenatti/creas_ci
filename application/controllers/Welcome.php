@@ -27,6 +27,6 @@ class Welcome extends CI_Controller
             'message' => ""
         );
 
-        $this->blade->view('auth/login', $dados);
+        $this->blade->view('usuarios/listar', $dados);
     }
 }
