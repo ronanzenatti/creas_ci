@@ -5,12 +5,13 @@
 @section('title_panel', 'Apresenta todos os usuários cadastrados.')
 
 @section('breadcrumb')
-    <li>
-        <span>Usuários</span>
-    </li>
-    <li class="active">
-        <span>Listar</span>
-    </li>
+    {{--<li>--}}
+        {{--<span>Usuários</span>--}}
+    {{--</li>--}}
+    {{--<li class="active">--}}
+        {{--<span>Listar</span>--}}
+    {{--</li>--}}
+    <a href="{{base_url('usuarios/inserir')}}" class="btn btn-success" >Novo</a>
 @endsection
 
 @section('content')
@@ -26,6 +27,7 @@
         </tr>
         </thead>
         <tbody>
+
         </tbody>
     </table>
 @endsection

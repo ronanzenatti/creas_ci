@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{BASE_URL('assets/css/bootstrap/bootstrap.css')}}"/>
     <link rel="stylesheet" href="{{BASE_URL('assets/css/dataTables/dataTables.bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{BASE_URL('assets/css/dataTables/responsive.bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/sweet-alert.css')}}"/>
 
     <!-- App styles -->
     <link rel="stylesheet" href="{{BASE_URL('assets/css/pe-icon/pe-icon-7-stroke.css')}}"/>
@@ -189,16 +190,18 @@
     <div id="navigation">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="#"> <span class="nav-label">Dashboard</span></a>
+                <a href="#"> <span class="nav-label">Inicio</span></a>
             </li>
             <li>
                 <a href="#"><span class="nav-label">Cadastros</span><span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="panels.html">Panels design</a></li>
-                    <li><a href="typography.html">Typography</a></li>
-                    <li><a href="buttons.html">Colors &amp; Buttons</a></li>
-                    <li><a href="components.html">Components</a></li>
+                    <li><a href="panels.html">Entidades</a></li>
+                    <li><a href="typography.html">Funcionários</a></li>
+                    <li><a href="buttons.html">Adolescentes</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="#"> <span class="nav-label">Situação Habitacional</span></a>
             </li>
         </ul>
     </div>
@@ -254,81 +257,41 @@
 </div>
 
 <!-- Vendor scripts -->
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/jquery/dist/jquery.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/metisMenu/dist/metisMenu.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/iCheck/icheck.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/sparkline/index.js"></script>
+<script src="{{base_url('assets/js/jquery.min.js')}}"></script>
+<script src="{{base_url('assets/js/jquery-ui.min.js')}}"></script>
+<script src="{{base_url('assets/js/jquery.slimscroll.min.js')}}"></script>
+<script src="{{base_url('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{base_url('assets/js/metisMenu.min.js')}}"></script>
+<script src="{{base_url('assets/js/icheck.min.js')}}"></script>
+<script src="{{base_url('assets/js/sparkline.index.js')}}"></script>
+<script src="{{base_url('assets/js/sweetalert.min.js')}}"></script>
+
+
+<script src="{{base_url('assets/js/validation/jquery.validate.min.js')}}"></script>
+<script src="{{base_url('assets/js/validation/additional-methods.min.js')}}"></script>
+<script src="{{base_url('assets/js/validation/messages_pt_BR.min.js')}}"></script>
 
 <!-- DataTables -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<script src="{{base_url('assets/js/dataTables/jquery.dataTables.min.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/dataTables.bootstrap.min.js')}}"></script>
 
-<script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap.min.js"></script>
+<!-- DataTables responsive -->
+<script src="{{base_url('assets/js/dataTables/dataTables.responsive.min.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/responsive.bootstrap.min.js')}}"></script>
 
 <!-- DataTables buttons scripts -->
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/pdfmake/build/pdfmake.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/pdfmake/build/vfs_fonts.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="{{base_url('assets/js/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{base_url('assets/js/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/buttons.html5.min.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/buttons.print.min.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/dataTables.buttons.min.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/buttons.bootstrap.min.js')}}"></script>
 
 
 <!-- App scripts -->
-<script src="http://webapplayers.com/homer_admin-v2.0/light-shadow/scripts/homer.js"></script>
+<script src="{{base_url('assets/js/homer.js')}}"></script>
 
-<script>
-
-    $(function () {
-        $('#table1').dataTable({
-            responsive: true,
-            pagingType: "full_numbers",
-            language: {
-                "decimal": ",",
-                "thousands": "."
-            },
-            "language": { //Altera o idioma do DataTable para o português do Brasil
-
-                "sEmptyTable": "Nenhum registro encontrado",
-                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sInfoThousands": ".",
-                "sLengthMenu": "_MENU_ resultados por página",
-                "sLoadingRecords": "Carregando...",
-                "sProcessing": "Processando...",
-                "sZeroRecords": "Nenhum registro encontrado",
-                "sSearch": "Pesquisar",
-                "oPaginate": {
-                    "sNext": "Próximo",
-                    "sPrevious": "Anterior",
-                    "sFirst": "Primeiro",
-                    "sLast": "Último"
-                },
-                "oAria": {
-                    "sSortAscending": ": Ordenar colunas de forma ascendente",
-                    "sSortDescending": ": Ordenar colunas de forma descendente"
-                }
-
-            },
-            dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
-            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-            buttons: [
-                {extend: 'copy', className: 'btn-sm'},
-                {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'},
-                {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-                {extend: 'print', className: 'btn-sm'}
-            ]
-        });
-    });
-
-</script>
-
+@yield('js')
 
 </body>
 </html>

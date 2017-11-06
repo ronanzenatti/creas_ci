@@ -254,10 +254,12 @@ th {
   .table td,
   .table th {
     background-color: #fff !important;
+    vertical-align: middle;
   }
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important;
+    vertical-align: middle;
   }
 }
 @font-face {
@@ -2249,6 +2251,7 @@ pre code {
   }
 }
 table {
+  width: 100% !important;
   background-color: transparent;
 }
 caption {
@@ -2259,6 +2262,7 @@ caption {
 }
 th {
   text-align: left;
+  vertical-align: middle;
 }
 .table {
   width: 100%;
@@ -2273,12 +2277,13 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   line-height: 1.42857143;
-  vertical-align: top;
   border-top: 1px solid #ddd;
+  vertical-align: middle;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
+  vertical-align: middle;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,

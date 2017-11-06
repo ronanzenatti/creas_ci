@@ -36,11 +36,11 @@ class MY_Model extends CI_Model
      *
      * @return array
      */
-    function GetById($id)
+    function GetById($idname, $id)
     {
         if (is_null($id))
             return false;
-        $this->db->where('id', $id);
+        $this->db->where($idname, $id);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
             return $query->row_array();
@@ -78,11 +78,11 @@ class MY_Model extends CI_Model
      *
      * @return boolean
      */
-    function Update($id, $data)
+    function Update($idname, $id, $data)
     {
         if (is_null($id) || !isset($data))
             return false;
-        $this->db->where('id', $id);
+        $this->db->where($idname, $id);
         return $this->db->update($this->table, $data);
     }
 

@@ -8,4 +8,8 @@ class Usuarios extends CI_Controller
     	
     }
 
+    public function inserir(){
+        $this->blade->view('usuarios/iuUsuario');
+    }
+
 }
