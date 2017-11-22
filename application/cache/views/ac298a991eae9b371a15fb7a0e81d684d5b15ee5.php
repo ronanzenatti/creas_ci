@@ -1,6 +1,6 @@
 <?php $__env->startSection('titulo_pagina', 'Inserir Cargo'); ?>
 
-<?php $__env->startSection('title_panel', 'Cadastrar um novo Cargo.'); ?>
+
 
 <?php $__env->startSection('breadcrumb'); ?>
     <li>
@@ -21,12 +21,19 @@
                        value="<?php echo e((isset($obj['idcargo']) ? $obj['idcargo'] : null)); ?>" name="idcargo" id="idcargo">
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="nome">Nome</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="nome" id="nome" autofocus maxlength="100" required
+                       value="<?php echo e((isset($obj['nome']) ? $obj['nome'] : null)); ?>" minlength="3">
+            </div>
+        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Descrição</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" name="descricao" id="descricao"
-                       value="<?php echo e((isset($obj['descricao']) ? $obj['descricao'] : null)); ?>" >
+            <label class="col-sm-2 control-label" for="descricao">Descrição</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="descricao" id="descricao" maxlength="255"
+                       value="<?php echo e((isset($obj['descricao']) ? $obj['descricao'] : null)); ?>">
             </div>
         </div>
 

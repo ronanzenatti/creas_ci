@@ -10,7 +10,7 @@
     <title>CREAS - @yield('titulo_pagina')</title>
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link rel="shortcut icon" type="image/ico" href="{{base_url('assets/img/logo.ico')}}"/>
 
     <!-- Vendor styles -->
     <link rel="stylesheet" href="{{BASE_URL('assets/css/fontawesome/font-awesome.min.css')}}"/>
@@ -19,7 +19,15 @@
     <link rel="stylesheet" href="{{BASE_URL('assets/css/bootstrap/bootstrap.css')}}"/>
     <link rel="stylesheet" href="{{BASE_URL('assets/css/dataTables/dataTables.bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{BASE_URL('assets/css/dataTables/responsive.bootstrap.min.css')}}"/>
-    <link rel="stylesheet" href="{{BASE_URL('assets/css/sweet-alert.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/sweetalert.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/select2/select2.min.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/select2/select2-bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/awesome-bootstrap-checkbox.css')}}"/>
+
+    <!-- Date and Time styles -->
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/datetime/bootstrap-datetimepicker.min.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/datetime/bootstrap-datepicker.min.css')}}"/>
+    <link rel="stylesheet" href="{{BASE_URL('assets/css/datetime/bootstrap-clockpicker.min.css')}}"/>
 
     <!-- App styles -->
     <link rel="stylesheet" href="{{BASE_URL('assets/css/pe-icon/pe-icon-7-stroke.css')}}"/>
@@ -177,7 +185,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#">
+                    <a href="{{base_url('index.php/auth/logout')}}">
                         <i class="pe-7s-upload pe-rotate-90"></i>
                     </a>
                 </li>
@@ -190,14 +198,15 @@
     <div id="navigation">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="#"> <span class="nav-label">Inicio</span></a>
+                <a href="{{base_url('index.php/principal')}}"> <span class="nav-label">Inicio</span></a>
             </li>
             <li>
                 <a href="#"><span class="nav-label">Cadastros</span><span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="panels.html">Entidades</a></li>
-                    <li><a href="typography.html">Funcionários</a></li>
-                    <li><a href="buttons.html">Adolescentes</a></li>
+                    <li><a href="{{base_url('index.php/entidades')}}">Entidades</a></li>
+                    <li><a href="{{base_url('index.php/cargos')}}">Cargos</a></li>
+                    <li><a href="{{base_url('index.php/usuarios')}}">Funcionários</a></li>
+                    <li><a href="{{base_url('index.php/adolescentes')}}">Adolescentes</a></li>
                 </ul>
             </li>
             <li>
@@ -234,13 +243,13 @@
 
     <div class="content">
         <div class="hpanel">
-            <div class="panel-heading">
-                <div class="panel-tools">
-                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                    <a class="closebox"><i class="fa fa-times"></i></a>
-                </div>
-                @yield('title_panel')
-            </div>
+            {{--<div class="panel-heading">--}}
+            {{--<div class="panel-tools">--}}
+            {{--<a class="showhide"><i class="fa fa-chevron-up"></i></a>--}}
+            {{--<a class="closebox"><i class="fa fa-times"></i></a>--}}
+            {{--</div>--}}
+            {{--@yield('title_panel')--}}
+            {{--</div>--}}
             <div class="panel-body">
                 @yield('content')
             </div>
@@ -255,7 +264,6 @@
     </footer>
 
 </div>
-
 <!-- Vendor scripts -->
 <script src="{{base_url('assets/js/jquery.min.js')}}"></script>
 <script src="{{base_url('assets/js/jquery-ui.min.js')}}"></script>
@@ -265,8 +273,16 @@
 <script src="{{base_url('assets/js/icheck.min.js')}}"></script>
 <script src="{{base_url('assets/js/sparkline.index.js')}}"></script>
 <script src="{{base_url('assets/js/sweetalert.min.js')}}"></script>
+<script src="{{base_url('assets/js/jquery.mask.min.js')}}"></script>
 
+<!-- Date and Time scripts -->
+<script src="{{base_url('assets/js/datetime/moment-with-locales.js')}}"></script>
+<script src="{{base_url('assets/js/datetime/bootstrap-datetimepicker.min.js')}}"></script>
+<script src="{{base_url('assets/js/datetime/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{base_url('assets/js/datetime/bootstrap-clockpicker.min.js')}}"></script>
+<script src="{{base_url('assets/js/datetime/locales/bootstrap-datepicker.pt-BR.min.js')}}"></script>
 
+<!-- JQuery Validate -->
 <script src="{{base_url('assets/js/validation/jquery.validate.min.js')}}"></script>
 <script src="{{base_url('assets/js/validation/additional-methods.min.js')}}"></script>
 <script src="{{base_url('assets/js/validation/messages_pt_BR.min.js')}}"></script>
@@ -287,11 +303,31 @@
 <script src="{{base_url('assets/js/dataTables/dataTables.buttons.min.js')}}"></script>
 <script src="{{base_url('assets/js/dataTables/buttons.bootstrap.min.js')}}"></script>
 
+<!-- DataTables utils -->
+<script src="{{base_url('assets/js/dataTables/date-eu.js')}}"></script>
+<script src="{{base_url('assets/js/dataTables/numeric-comma.js')}}"></script>
+
+<!-- Select2 -->
+<script src="{{base_url('assets/js/select2/select2.full.js')}}"></script>
+<script src="{{base_url('assets/js/select2/i18n/pt-BR.js')}}"></script>
+
+<!-- Summernote Scripts -->
+<script src="{{base_url('assets/js/summernote/summernote.min.js')}}"></script>
+<script src="{{base_url('assets/js/summernote/lang/summernote-pt-BR.js')}}"></script>
+<script src="{{base_url('assets/js/summernote/plugin/databasic/summernote-ext-databasic.js')}}"></script>
+<script src="{{base_url('assets/js/summernote/plugin/hello/summernote-ext-hello.js')}}"></script>
+<script src="{{base_url('assets/js/summernote/plugin/specialchars/summernote-ext-specialchars.js')}}"></script>
+<script src="{{base_url('assets/js/summernote/plugin/summernote-ext-print.js')}}"></script>
+
+<script src="{{base_url('assets/js/jquery.steps.min.js')}}"></script>
 
 <!-- App scripts -->
 <script src="{{base_url('assets/js/homer.js')}}"></script>
+<script src="{{base_url('assets/js/creas.js')}}"></script>
 
 @yield('js')
+
+@yield("modal")
 
 </body>
 </html>

@@ -15,46 +15,42 @@
 @endsection
 
 @section('content')
-    <table id="table1" class="table table-striped table-bordered table-hover" cellspacing="0">
+    <table id="tableCargos" class="table table-striped table-bordered table-hover" cellspacing="0">
         <thead>
         <tr>
-            <th>Código</th>
+            <th>#</th>
+            <th>Nome</th>
             <th>Descrição</th>
             <th>Cadastro</th>
             <th>Ações</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($lista as $l)
-            <tr>
-                <td>{{$l['idcargo']}}</td>
-                <td>{{$l['descricao']}}</td>
-                <td>{{date('d/m/Y H:i:s', strtotime($l['created_at']))}}</td>
-                <td>
-                    <a href="{{base_url('index.php/cargos/alterar/'.$l['idcargo'])}}" class="btn btn-warning btn-sm">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                </td>
-            </tr>
-        @endforeach
         </tbody>
     </table>
 @endsection
 
 @section('js')
-
     <script>
         $(function () {
-            $('#table1').dataTable({
+            $('table').dataTable({
                 responsive: true,
-                pagingType: "full_numbers",
-                language: {
-                    "decimal": ",",
-                    "thousands": "."
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{base_url('index.php/cargos/Ajax_Datatables')}}",
+                    type: "POST"
                 },
-                "language": { //Altera o idioma do DataTable para o português do Brasil
-
+                pagingType: "full_numbers",
+                columnDefs: [
+                    {targets: [4], orderable: false,},
+                    {type: 'date-eu', targets: 3},
+                ],
+                language: {
+                    decimal: ",",
+                    thousands: "."
+                },
+                language: {
                     "sEmptyTable": "Nenhum registro encontrado",
                     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                     "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
@@ -67,27 +63,25 @@
                     "sZeroRecords": "Nenhum registro encontrado",
                     "sSearch": "Pesquisar",
                     "oPaginate": {
-                        "sNext": "Próximo",
-                        "sPrevious": "Anterior",
-                        "sFirst": "Primeiro",
-                        "sLast": "Último"
+                        "sFirst": "<i class='fa fa-angle-double-left'></i>",
+                        "sLast": "<i class='fa fa-angle-double-right'></i>",
+                        "sNext": "<i class='fa fa-angle-right'></i>",
+                        "sPrevious": "<i class='fa fa-angle-left'></i>"
                     },
                     "oAria": {
                         "sSortAscending": ": Ordenar colunas de forma ascendente",
                         "sSortDescending": ": Ordenar colunas de forma descendente"
                     }
-
                 },
                 dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
                 "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
                 buttons: [
                     {extend: 'copy', className: 'btn-sm', text: 'Copiar'},
-                    {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'},
-                    {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+                    {extend: 'csv', title: 'FileCSV', className: 'btn-sm'},
+                    {extend: 'pdf', title: 'FilePDF', className: 'btn-sm'},
                     {extend: 'print', className: 'btn-sm', text: 'Imprimir'}
                 ]
             });
         });
-
     </script>
 @endsection

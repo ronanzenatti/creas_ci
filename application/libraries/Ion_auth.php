@@ -511,7 +511,7 @@ class Ion_auth
 			$groups_array = array();
 			foreach ($users_groups as $group)
 			{
-				$groups_array[$group->id] = $group->name;
+				$groups_array[$group->id] = $group->nome;
 			}
 			$this->_cache_user_in_group[$id] = $groups_array;
 		}

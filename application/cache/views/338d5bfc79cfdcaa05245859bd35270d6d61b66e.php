@@ -27,7 +27,7 @@
 </head>
 <body class="light-skin blank">
 
-<div id="infoMessage"><?php echo isset($message) ? $message : null; ?>1</div>
+<div id="infoMessage" class="text-danger"><?php echo isset($message) ? $message : null; ?></div>
 
 <div class="login-container">
     <div class="row">
@@ -42,19 +42,19 @@
                         <div class="form-group">
                             <label class="control-label" for="username">E-mail</label>
                             <input type="text" placeholder="digite seu e-mail" title="Please enter you username"
-                                   required="" name="identity" value="" id="identity" class="form-control">
+                                   required name="identity" value="" id="identity" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="password">Senha</label>
-                            <input type="password" title="digite sua senha" placeholder="******" required=""
+                            <input type="password" title="digite sua senha" placeholder="******" required
                                    name="password" value="" id="password" class="form-control">
                         </div>
-                        <div class="checkbox">
-                            <input type="checkbox" class="i-checks" name="remember" value="1" id="remember">
-                            Permanecer conectado
-                            <p class="help-block small">(somente em computadores pessoais)</p>
-                        </div>
-                        <button class="btn btn-success btn-block">Login</button>
+                        
+                        
+                        
+                        
+                        
+                        <button id="login-button" type="submit" class="btn btn-success btn-block">Login</button>
                     </form>
                 </div>
             </div>

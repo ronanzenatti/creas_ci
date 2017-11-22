@@ -9,18 +9,54 @@ $(document).ready(function () {
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
 
+    //Mask Input's
+    $('.mask_date').mask('99/99/9999');
+    $('.mask_time').mask('00:00:00');
+    $('.mask_datetime').mask('99/99/9999 00:00');
+    $('.mask_date_time').mask('99/99/9999 00:00:00');
+    $('.mask_CEP').mask('99.999-999');
+    $('.mask_phone9').mask('(99) 9 9999-9999');
+    $('.mask_phone8').mask('(99) 9999-9999');
+    $('.mask_CNPJ').mask('99.999.999/9999-99');
+    $('.mask_CPF').mask('999.999.999-99');
+
+    $('.mask_fone').focusout(function () {
+        var phone, element;
+        element = $(this);
+        element.unmask();
+        phone = element.val().replace(/\D/g, '');
+        if (phone.length > 10) {
+            element.mask("(99) 9 9999-9999");
+        } else {
+            element.mask("(99) 9999-9999?9");
+        }
+    }).trigger('focusout');
+
+    $('.datetime_picker').datetimepicker({
+        locale: 'pt_BR'
+    });
+
+    $('.datepicker').datepicker({
+        language: 'pt-BR'
+    });
+
+    $('.input-group.date').datepicker({
+        language: 'pt-BR'
+    });
+
+
     // Check if sidebar scroll is enabled
-    if($('body').hasClass('sidebar-scroll')) {
+    if ($('body').hasClass('sidebar-scroll')) {
         $('#navigation').slimScroll({
             height: '100%',
             opacity: 0.3,
-            size : 0,
-            wheelStep : 5
+            size: 0,
+            wheelStep: 5
         });
     }
 
     // Handle minimalize sidebar menu
-    $('.hide-menu').on('click', function(event){
+    $('.hide-menu').on('click', function (event) {
         event.preventDefault();
         if ($(window).width() < 769) {
             $("body").toggleClass("show-sidebar");
@@ -65,17 +101,19 @@ $(document).ready(function () {
         event.preventDefault();
         var hpanel = $(this).closest('div.hpanel');
         hpanel.remove();
-        if($('body').hasClass('fullscreen-panel-mode')) { $('body').removeClass('fullscreen-panel-mode');}
+        if ($('body').hasClass('fullscreen-panel-mode')) {
+            $('body').removeClass('fullscreen-panel-mode');
+        }
     });
 
     // Fullscreen for fullscreen hpanel
-    $('.fullscreen').on('click', function() {
+    $('.fullscreen').on('click', function () {
         var hpanel = $(this).closest('div.hpanel');
         var icon = $(this).find('i:first');
         $('body').toggleClass('fullscreen-panel-mode');
         icon.toggleClass('fa-expand').toggleClass('fa-compress');
         hpanel.toggleClass('fullscreen');
-        setTimeout(function() {
+        setTimeout(function () {
             $(window).trigger('resize');
         }, 100);
     });
@@ -86,10 +124,10 @@ $(document).ready(function () {
     });
 
     // Function for small header
-    $('.small-header-action').on('click', function(event){
+    $('.small-header-action').on('click', function (event) {
         event.preventDefault();
         var icon = $(this).find('i:first');
-        var breadcrumb  = $(this).parent().find('#hbreadcrumb');
+        var breadcrumb = $(this).parent().find('#hbreadcrumb');
         $(this).parent().parent().parent().toggleClass('small-header');
         breadcrumb.toggleClass('m-t-lg');
         icon.toggleClass('fa-arrow-up').toggleClass('fa-arrow-down');
@@ -154,7 +192,7 @@ function fixWrapperHeight() {
 
     // Set new height when contnet height is less then navigation and navigation is less then window
     if (contentH < navigationH && navigationH < $(window).height()) {
-        $("#wrapper").css("min-height", $(window).height() - headerH  + 'px');
+        $("#wrapper").css("min-height", $(window).height() - headerH + 'px');
     }
 
     // Set new height when contnet is higher then navigation but less then window
@@ -174,7 +212,7 @@ function setBodySmall() {
 }
 
 // Animate panel function
-$.fn['animatePanel'] = function() {
+$.fn['animatePanel'] = function () {
 
     var element = $(this);
     var effect = $(this).data('effect');
@@ -182,9 +220,19 @@ $.fn['animatePanel'] = function() {
     var child = $(this).data('child');
 
     // Set default values for attrs
-    if(!effect) { effect = 'zoomIn'}
-    if(!delay) { delay = 0.05 } else { delay = delay / 10 }
-    if(!child) { child = '.row > div'} else {child = "." + child}
+    if (!effect) {
+        effect = 'zoomIn'
+    }
+    if (!delay) {
+        delay = 0.05
+    } else {
+        delay = delay / 10
+    }
+    if (!child) {
+        child = '.row > div'
+    } else {
+        child = "." + child
+    }
 
     //Set defaul values for start animation and delay
     var startAnimation = 0;
@@ -211,7 +259,7 @@ $.fn['animatePanel'] = function() {
     });
 
     // Clear animation after finish
-    setTimeout(function(){
+    setTimeout(function () {
         $('.stagger').css('animation', '');
         $('.stagger').removeClass(effect).removeClass('animated-panel').removeClass('stagger');
     }, animateTime)

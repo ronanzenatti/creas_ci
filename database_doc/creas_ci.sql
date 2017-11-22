@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2017 at 11:50 AM
--- Server version: 10.1.22-MariaDB
+-- Generation Time: 22-Nov-2017 às 04:43
+-- Versão do servidor: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,34 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `creas_ci`
 --
-CREATE DATABASE IF NOT EXISTS `creas_ci` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `creas_ci`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `atendidos`
+-- Estrutura da tabela `adolescentes`
 --
 
-CREATE TABLE `atendidos` (
-  `idatendido` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `adolescentes` (
+  `idadolescente` int(10) UNSIGNED NOT NULL,
   `responsavel` varchar(150) DEFAULT NULL,
   `pai` varchar(150) DEFAULT NULL,
   `pai_nasc` date DEFAULT NULL,
-  `pai_natual` varchar(50) DEFAULT NULL,
+  `pai_natural` varchar(50) DEFAULT NULL,
   `mae` varchar(150) DEFAULT NULL,
   `mae_nasc` date DEFAULT NULL,
-  `mae_natual` varchar(50) DEFAULT NULL,
+  `mae_natural` varchar(50) DEFAULT NULL,
   `idpessoa` int(10) UNSIGNED NOT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cargos`
+-- Estrutura da tabela `cargos`
 --
 
 CREATE TABLE `cargos` (
@@ -60,16 +57,23 @@ CREATE TABLE `cargos` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `cargos`
+--
+
+INSERT INTO `cargos` (`idcargo`, `nome`, `descricao`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Administrador', 'Gerencia e edita todo o sistema', '2017-11-22 01:14:32', '2017-11-22 01:14:32', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contatos`
+-- Estrutura da tabela `contatos`
 --
 
 CREATE TABLE `contatos` (
   `idcontato` int(10) UNSIGNED NOT NULL,
   `descricao` varchar(50) DEFAULT NULL,
-  `tipo` char(1) DEFAULT NULL,
+  `tipo_cont` char(1) DEFAULT NULL,
   `contato` varchar(200) DEFAULT NULL,
   `ativo` tinyint(1) DEFAULT NULL,
   `idpessoa` int(10) UNSIGNED NOT NULL,
@@ -81,7 +85,7 @@ CREATE TABLE `contatos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documentos`
+-- Estrutura da tabela `documentos`
 --
 
 CREATE TABLE `documentos` (
@@ -113,7 +117,7 @@ CREATE TABLE `documentos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enderecos`
+-- Estrutura da tabela `enderecos`
 --
 
 CREATE TABLE `enderecos` (
@@ -127,7 +131,7 @@ CREATE TABLE `enderecos` (
   `estado` char(2) DEFAULT NULL,
   `cep` varchar(15) DEFAULT NULL,
   `referencia` varchar(45) DEFAULT NULL,
-  `dt_mudanca` datetime DEFAULT NULL,
+  `dt_mudanca` date DEFAULT NULL,
   `motivo` text,
   `idpessoa` int(10) UNSIGNED NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -138,13 +142,13 @@ CREATE TABLE `enderecos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entidades`
+-- Estrutura da tabela `entidades`
 --
 
 CREATE TABLE `entidades` (
   `identidade` int(10) UNSIGNED NOT NULL,
-  `nome` varchar(200) DEFAULT NULL,
-  `cnpj` varchar(15) DEFAULT NULL,
+  `nome` varchar(200) NOT NULL,
+  `cnpj` varchar(18) DEFAULT NULL,
   `logradouro` varchar(200) DEFAULT NULL,
   `numero` varchar(10) DEFAULT NULL,
   `bairro` varchar(100) DEFAULT NULL,
@@ -153,15 +157,25 @@ CREATE TABLE `entidades` (
   `cep` varchar(10) DEFAULT NULL,
   `telefones` varchar(50) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
+  `responsavel` varchar(200) NOT NULL,
+  `resp_tel` varchar(16) NOT NULL,
+  `resp_email` varchar(150) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `entidades`
+--
+
+INSERT INTO `entidades` (`identidade`, `nome`, `cnpj`, `logradouro`, `numero`, `bairro`, `cidade`, `estado`, `cep`, `telefones`, `email`, `responsavel`, `resp_tel`, `resp_email`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Centro de Referência Especializado de Assistência Social - Ibitinga', '', '', '', '', 'Ibitinga', 'SP', '', '', '', 'Valquiria', '', '', '2017-11-22 01:15:16', '2017-11-22 01:15:16', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_attempts`
+-- Estrutura da tabela `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -171,34 +185,22 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '::1', 'administrador', 1509329702),
-(2, '::1', 'administrador', 1509329797),
-(3, '::1', 'administrador', 1509329800),
-(4, '::1', 'administrador', 1509330317),
-(5, '::1', 'administrador', 1509330439),
-(6, '::1', 'administrador', 1509330458);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pessoas`
+-- Estrutura da tabela `pessoas`
 --
 
 CREATE TABLE `pessoas` (
   `idpessoa` int(10) UNSIGNED NOT NULL,
   `nome` varchar(200) DEFAULT NULL,
   `dt_nasc` date DEFAULT NULL,
-  `nome_tratamento` varchar(255) DEFAULT NULL,
+  `nome_tratamento` varchar(50) DEFAULT NULL,
   `sexo` char(1) DEFAULT NULL,
   `estado_civil` char(1) DEFAULT NULL,
   `natural` varchar(50) DEFAULT NULL,
-  `responsavel` varchar(150) DEFAULT NULL,
   `obs` text,
+  `tipo_pessoa` char(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -207,7 +209,7 @@ CREATE TABLE `pessoas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `situacao_habitacional`
+-- Estrutura da tabela `situacao_habitacional`
 --
 
 CREATE TABLE `situacao_habitacional` (
@@ -230,7 +232,7 @@ CREATE TABLE `situacao_habitacional` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trabalhos`
+-- Estrutura da tabela `trabalhos`
 --
 
 CREATE TABLE `trabalhos` (
@@ -251,7 +253,7 @@ CREATE TABLE `trabalhos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -270,9 +272,10 @@ CREATE TABLE `usuarios` (
   `remember_code` varchar(40) DEFAULT NULL,
   `last_login` int(10) UNSIGNED DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
+  `termo` tinyint(1) NOT NULL,
+  `data_termo` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `deleted_at` datetime DEFAULT NULL
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -280,10 +283,10 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indexes for table `atendidos`
+-- Indexes for table `adolescentes`
 --
-ALTER TABLE `atendidos`
-  ADD PRIMARY KEY (`idatendido`),
+ALTER TABLE `adolescentes`
+  ADD PRIMARY KEY (`idadolescente`),
   ADD KEY `fk_pessoas_atendidos_idx` (`idpessoa`);
 
 --
@@ -359,15 +362,15 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT for table `atendidos`
+-- AUTO_INCREMENT for table `adolescentes`
 --
-ALTER TABLE `atendidos`
-  MODIFY `idatendido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `adolescentes`
+  MODIFY `idadolescente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `idcargo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idcargo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `contatos`
 --
@@ -387,12 +390,12 @@ ALTER TABLE `enderecos`
 -- AUTO_INCREMENT for table `entidades`
 --
 ALTER TABLE `entidades`
-  MODIFY `identidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `identidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pessoas`
 --
@@ -418,43 +421,43 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Constraints for table `atendidos`
+-- Limitadores para a tabela `adolescentes`
 --
-ALTER TABLE `atendidos`
+ALTER TABLE `adolescentes`
   ADD CONSTRAINT `fk_pessoas_atendidos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `contatos`
+-- Limitadores para a tabela `contatos`
 --
 ALTER TABLE `contatos`
   ADD CONSTRAINT `fk_pessoas_documentos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `documentos`
+-- Limitadores para a tabela `documentos`
 --
 ALTER TABLE `documentos`
   ADD CONSTRAINT `fk_pessoa_documentos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `enderecos`
+-- Limitadores para a tabela `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD CONSTRAINT `fk_pessoa` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `situacao_habitacional`
+-- Limitadores para a tabela `situacao_habitacional`
 --
 ALTER TABLE `situacao_habitacional`
   ADD CONSTRAINT `fk_endereco` FOREIGN KEY (`idendereco`) REFERENCES `enderecos` (`idendereco`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `trabalhos`
+-- Limitadores para a tabela `trabalhos`
 --
 ALTER TABLE `trabalhos`
   ADD CONSTRAINT `fk_pessoa_trabalhos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `usuarios`
+-- Limitadores para a tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_cargo_usuario` FOREIGN KEY (`idcargo`) REFERENCES `cargos` (`idcargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,

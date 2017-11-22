@@ -1,10 +1,10 @@
-<?php $__env->startSection('titulo_pagina', 'Inserir Usuário'); ?>
+<?php $__env->startSection('titulo_pagina', 'Inserir Funcionário'); ?>
 
-<?php $__env->startSection('title_panel', 'Cadastrar um novo Usuário.'); ?>
+
 
 <?php $__env->startSection('breadcrumb'); ?>
     <li>
-        <span>Usuários</span>
+        <span>Funcionários</span>
     </li>
     <li class="active">
         <span>Inserir</span>
@@ -13,24 +13,43 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-    <form role="form1" id="form1">
-        <div class="form-group"><label>Email</label>
-            <input type="email" placeholder="Enter email" class="form-control" required>
+
+
+
+    <form role="form1" id="form1" class="form-horizontal" method="post" action="<?php echo e(base_url('index.php/funcionarios/save')); ?>">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Código</label>
+            <div class="col-sm-2">
+                <input type="text" placeholder="Novo" class="form-control text-center" readonly
+                       value="<?php echo e((isset($obj['idfuncionario']) ? $obj['idfuncionario'] : null)); ?>" name="idfuncionario" id="idfuncionario">
+            </div>
         </div>
-        <div class="form-group"><label>Password</label>
-            <input type="password" placeholder="Password" class="form-control" name="password">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="nome">Nome</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="nome" id="nome" autofocus maxlength="100" required
+                       value="<?php echo e((isset($obj['nome']) ? $obj['nome'] : null)); ?>" minlength="3">
+            </div>
         </div>
-        <div class="form-group"><label>Url</label>
-            <input type="text" placeholder="Enter email" class="form-control" name="url">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="descricao">Descrição</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="descricao" id="descricao" maxlength="255"
+                       value="<?php echo e((isset($obj['descricao']) ? $obj['descricao'] : null)); ?>">
+            </div>
         </div>
-        <div class="form-group"><label>Number</label>
-            <input type="text" placeholder="Enter email" class="form-control" name="number" required>
-        </div>
-        <div class="form-group"><label>MaxLength</label>
-            <input type="text" placeholder="Enter email" class="form-control" name="max">
-        </div>
-        <div>
-            <button class="btn btn-primary" type="submit"><strong>Submit</strong></button>
+
+        <div class="col-sm-offset-2">
+            <a href="<?php echo e(base_url('index.php/funcionarios/index')); ?>" class="btn btn-default" id="voltar" name="voltar">
+                <i class="fa fa-reply"></i> <br><strong>Voltar</strong>
+            </a>
+            <button class="btn btn-info" id="limpar" name="limpar" type="reset">
+                <i class="fa fa-window-close-o"></i> <br><strong>Limpar</strong>
+            </button>
+            <button class="btn btn-success" id="salvar" name="salvar" type="submit">
+                <i class="fa fa-floppy-o"></i> <br><strong>Salvar</strong>
+            </button>
         </div>
     </form>
 <?php $__env->stopSection(); ?>
