@@ -69,7 +69,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
                 //redirect('auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
                 print_r($this->session->flashdata('item'));
-                $this->blade->view('auth/login');
+                redirect('auth/login');
             }
         } else {
             // the user is not logging in so display the login page

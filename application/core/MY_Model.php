@@ -67,8 +67,11 @@ class MY_Model extends CI_Model
      *
      * @return array
      */
-    function GetAll($sort = 'id', $order = 'asc', $null = true)
+    function GetAll($sort = 'id', $order = 'asc', $null = true, $where = false)
     {
+        if ($where) {
+            $this->db->where($where);
+        }
         if ($null) {
             $this->db->where('deleted_at IS NULL', null, false);
         }

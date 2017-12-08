@@ -26,9 +26,6 @@
 
 </head>
 <body class="light-skin blank">
-
-<div id="infoMessage" class="text-danger"><?php echo isset($message) ? $message : null; ?></div>
-
 <div class="login-container">
     <div class="row">
         <div class="col-md-12">
@@ -44,6 +41,9 @@
                             <input type="text" placeholder="digite seu e-mail" title="Please enter you username"
                                    required name="identity" value="" id="identity" class="form-control">
                         </div>
+                        @if(isset($message))
+                            <div id="infoMessage" class="alert alert-danger">{{$message}}</div>
+                        @endif
                         <div class="form-group">
                             <label class="control-label" for="password">Senha</label>
                             <input type="password" title="digite sua senha" placeholder="******" required
@@ -62,7 +62,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            Desenvolvido por <br/> <strong>ETEC Ibitinga</strong>
+            Desenvolvido por <br/> <strong>ETEC de Ibitinga</strong>
         </div>
     </div>
 </div>

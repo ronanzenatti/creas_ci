@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/datetime/bootstrap-datepicker.min.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/datetime/bootstrap-clockpicker.min.css')); ?>"/>
 
+    <!-- SummerNote styles -->
+    <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/summernote/summernote.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/summernote/databasic/summernote-ext-databasic.css')); ?>"/>
+
     <!-- App styles -->
     <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/pe-icon/pe-icon-7-stroke.css')); ?>"/>
     <link rel="stylesheet" href="<?php echo e(BASE_URL('assets/css/pe-icon/helper.css')); ?>"/>
@@ -77,30 +81,30 @@
         </div>
         <div class="navbar-right">
             <ul class="nav navbar-nav no-borders">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-speaker"></i>
-                    </a>
-                    <ul class="dropdown-menu hdropdown notification animated flipInX">
-                        <li>
-                            <a>
-                                <span class="label label-success">NEW</span> It is a long established.
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="label label-warning">WAR</span> There are many variations.
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="label label-danger">ERR</span> Contrary to popular belief.
-                            </a>
-                        </li>
-                        <li class="summary"><a href="#">See all notifications</a></li>
-                    </ul>
-                </li>
-                <!--  <li class="dropdown">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <!--  <li class="dropdown">
                       <a class="dropdown-toggle" href="#" data-toggle="dropdown">
                           <i class="pe-7s-keypad"></i>
                       </a>
@@ -152,38 +156,38 @@
                           </table>
                       </div>
                   </li>-->
-                <li class="dropdown">
-                    <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-mail"></i>
-                        <span class="label label-success">4</span>
-                    </a>
-                    <ul class="dropdown-menu hdropdown animated flipInX">
-                        <div class="title">
-                            You have 4 new messages
-                        </div>
-                        <li>
-                            <a>
-                                It is a long established.
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                There are many variations.
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                Lorem Ipsum is simply dummy.
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                Contrary to popular belief.
-                            </a>
-                        </li>
-                        <li class="summary"><a href="#">See All Messages</a></li>
-                    </ul>
-                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <li class="dropdown">
                     <a href="<?php echo e(base_url('index.php/auth/logout')); ?>">
                         <i class="pe-7s-upload pe-rotate-90"></i>
@@ -206,11 +210,18 @@
                     <li><a href="<?php echo e(base_url('index.php/entidades')); ?>">Entidades</a></li>
                     <li><a href="<?php echo e(base_url('index.php/cargos')); ?>">Cargos</a></li>
                     <li><a href="<?php echo e(base_url('index.php/usuarios')); ?>">Funcionários</a></li>
-                    <li><a href="<?php echo e(base_url('index.php/adolescentes')); ?>">Adolescentes</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"> <span class="nav-label">Situação Habitacional</span></a>
+                <a href="#"><span class="nav-label">Adolescentes</span><span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li><a href="<?php echo e(base_url('index.php/adolescentes')); ?>">Cadastro</a></li>
+                    <li><a href="<?php echo e(base_url('index.php/situacao_habitacional')); ?>">Situação Habitacional</a></li>
+                    <li><a href="#">Composição Familiar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://goo.gl/forms/x9wcoIDNRsmlf1eH2" target="_blank"> <span class="nav-label">Suporte</span></a>
             </li>
         </ul>
     </div>

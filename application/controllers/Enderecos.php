@@ -7,11 +7,21 @@ class Enderecos extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Enderecos_model', 'em');
+        $this->load->model('Pessoas_model', 'pm');
     }
 
     public function index()
     {
 
+    }
+
+    public function show()
+    {
+        $idPessoa = $this->input->post('idpessoa');
+
+        $dados = Array();
+        $dados['obj'] = $this->pm->GetById('idpessoa', $idPessoa);
+        $this->blade->view('adolescentes/modals/showEndereco', $dados);
     }
 
     public function save()
@@ -57,7 +67,7 @@ class Enderecos extends CI_Controller
     public function Ajax_Datatables()
     {
         $idpessoa = $this->input->post('idpessoa');
-        $where = array("idpessoa"=>$idpessoa);
+        $where = array("idpessoa" => $idpessoa);
         $list = $this->em->Get_Datatables(null, $where);
         $data = array();
         $no = $_POST['start'];
