@@ -7,3 +7,4 @@
         <img src="{{base_url("assets/img/brasao.jpg")}}">
     </div>
 @endsection
+

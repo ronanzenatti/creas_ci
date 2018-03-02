@@ -27,7 +27,7 @@ $base_url = "http://" . $_SERVER['HTTP_HOST'];
 $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 $config['base_url'] = $base_url;
 
-//$config['base_url'] = '';
+//$config['base_url'] = 'http://localhost:82/CREAS_CI/';
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ $config['base_url'] = $base_url;
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

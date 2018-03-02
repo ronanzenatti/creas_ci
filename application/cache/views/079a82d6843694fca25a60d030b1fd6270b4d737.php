@@ -205,14 +205,6 @@
                 <a href="<?php echo e(base_url('index.php/principal')); ?>"> <span class="nav-label">Inicio</span></a>
             </li>
             <li>
-                <a href="#"><span class="nav-label">Cadastros</span><span class="fa arrow"></span> </a>
-                <ul class="nav nav-second-level">
-                    <li><a href="<?php echo e(base_url('index.php/entidades')); ?>">Entidades</a></li>
-                    <li><a href="<?php echo e(base_url('index.php/cargos')); ?>">Cargos</a></li>
-                    <li><a href="<?php echo e(base_url('index.php/usuarios')); ?>">Funcionários</a></li>
-                </ul>
-            </li>
-            <li>
                 <a href="#"><span class="nav-label">Adolescentes</span><span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li><a href="<?php echo e(base_url('index.php/adolescentes')); ?>">Cadastro</a></li>
@@ -221,7 +213,18 @@
                 </ul>
             </li>
             <li>
+                <a href="#"><span class="nav-label">Cadastros</span><span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li><a href="<?php echo e(base_url('index.php/entidades')); ?>">Entidades</a></li>
+                    <li><a href="<?php echo e(base_url('index.php/cargos')); ?>">Cargos</a></li>
+                    <li><a href="<?php echo e(base_url('index.php/usuarios')); ?>">Funcionários</a></li>
+                </ul>
+            </li>
+            <li>
                 <a href="https://goo.gl/forms/x9wcoIDNRsmlf1eH2" target="_blank"> <span class="nav-label">Suporte</span></a>
+            </li>
+            <li>
+                <a href="<?php echo e(base_url('index.php/auth/logout')); ?>" target="_blank"> <span class="nav-label">Sair</span></a>
             </li>
         </ul>
     </div>
