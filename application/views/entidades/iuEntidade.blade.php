@@ -16,7 +16,7 @@
 
 @section('content')
     <form role="form1" id="form1" class="form-horizontal" method="post"
-          action="{{base_url('index.php/entidades/save')}}">
+          action="{{base_url('entidades/save')}}">
         <div class="form-group">
             <label class="col-sm-2 control-label">Código</label>
             <div class="col-sm-2">
@@ -141,7 +141,7 @@
         </div>
 
         <div class="col-sm-offset-2">
-            <a href="{{base_url('index.php/entidades/index')}}" class="btn btn-default" id="voltar" name="voltar">
+            <a href="{{base_url('entidades/index')}}" class="btn btn-default" id="voltar" name="voltar">
                 <i class="fa fa-reply"></i> <br><strong>Voltar</strong>
             </a>
 

@@ -36,6 +36,8 @@
     <!-- App styles -->
     <link rel="stylesheet" href="{{BASE_URL('assets/css/pe-icon/pe-icon-7-stroke.css')}}"/>
     <link rel="stylesheet" href="{{BASE_URL('assets/css/pe-icon/helper.css')}}"/>
+
+	<!-- Homer Admin CSS styles -->
     <link rel="stylesheet" href="{{BASE_URL('assets/css/style.css')}}">
 
 </head>
@@ -189,7 +191,7 @@
                 {{--</ul>--}}
                 {{--</li>--}}
                 <li class="dropdown">
-                    <a href="{{base_url('index.php/auth/logout')}}">
+                    <a href="{{base_url('auth/logout')}}">
                         <i class="pe-7s-upload pe-rotate-90"></i>
                     </a>
                 </li>
@@ -202,29 +204,29 @@
     <div id="navigation">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="{{base_url('index.php/principal')}}"> <span class="nav-label">Inicio</span></a>
+                <a href="{{base_url('principal')}}"> <span class="nav-label">Inicio</span></a>
             </li>
             <li>
                 <a href="#"><span class="nav-label">Adolescentes</span><span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="{{base_url('index.php/adolescentes')}}">Cadastro</a></li>
-                    <li><a href="{{base_url('index.php/situacao_habitacional')}}">Situação Habitacional</a></li>
+                    <li><a href="{{base_url('adolescentes')}}">Cadastro</a></li>
+                    <li><a href="{{base_url('situacao_habitacional')}}">Situação Habitacional</a></li>
                     <li><a href="#">Composição Familiar</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><span class="nav-label">Cadastros</span><span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="{{base_url('index.php/entidades')}}">Entidades</a></li>
-                    <li><a href="{{base_url('index.php/cargos')}}">Cargos</a></li>
-                    <li><a href="{{base_url('index.php/usuarios')}}">Funcionários</a></li>
+                    <li><a href="{{base_url('entidades')}}">Entidades</a></li>
+                    <li><a href="{{base_url('cargos')}}">Cargos</a></li>
+                    <li><a href="{{base_url('usuarios')}}">Funcionários</a></li>
                 </ul>
             </li>
             <li>
                 <a href="https://goo.gl/forms/x9wcoIDNRsmlf1eH2" target="_blank"> <span class="nav-label">Suporte</span></a>
             </li>
             <li>
-                <a href="{{base_url('index.php/auth/logout')}}" target="_blank"> <span class="nav-label">Sair</span></a>
+                <a href="{{base_url('auth/logout')}}" target="_blank"> <span class="nav-label">Sair</span></a>
             </li>
         </ul>
     </div>
@@ -288,6 +290,7 @@
 <script src="{{base_url('assets/js/sparkline.index.js')}}"></script>
 <script src="{{base_url('assets/js/sweetalert.min.js')}}"></script>
 <script src="{{base_url('assets/js/jquery.mask.min.js')}}"></script>
+<script src="{{base_url('assets/js/jquery.maskMoney.min.js')}}"></script>
 
 <!-- Date and Time scripts -->
 <script src="{{base_url('assets/js/datetime/moment-with-locales.js')}}"></script>
@@ -334,6 +337,7 @@
 <script src="{{base_url('assets/js/summernote/plugin/summernote-ext-print.js')}}"></script>
 
 <script src="{{base_url('assets/js/jquery.steps.min.js')}}"></script>
+<script src="{{base_url('assets/js/jquery.blockUI.js')}}"></script>
 
 <!-- App scripts -->
 <script src="{{base_url('assets/js/homer.js')}}"></script>

@@ -67,7 +67,7 @@
             if (phone.length > 10) {
                 element.mask("(99) 9 9999-9999");
             } else {
-                element.mask("(99) 9999-9999?9");
+                element.mask("(99) 9999-9999#");
             }
         } else if ($("#tipo_cont").val() == 'E') {
             $(this).unmask();

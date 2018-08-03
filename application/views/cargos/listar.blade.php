@@ -11,7 +11,7 @@
     {{--<li class="active">--}}
     {{--<span>Listar</span>--}}
     {{--</li>--}}
-    <a href="{{base_url('index.php/cargos/inserir')}}" class="btn btn-success">Novo</a>
+    <a href="{{base_url('cargos/inserir')}}" class="btn btn-success">Novo</a>
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{base_url('index.php/cargos/Ajax_Datatables')}}",
+                    url: "{{base_url('cargos/Ajax_Datatables')}}",
                     type: "POST"
                 },
                 pagingType: "full_numbers",

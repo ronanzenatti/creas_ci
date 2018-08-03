@@ -40,14 +40,14 @@ class Enderecos extends CI_Controller
             $form['dt_mudanca'] = date('Y-m-d', strtotime(str_replace("/", "-", $form['dt_mudanca'])));
         }
 
-        if (empty($form['iddocumento'])) {
+        if (empty($form['idendereco'])) {
             $form['created_at'] = date('Y-m-d H:i:s');
             $form['updated_at'] = date('Y-m-d H:i:s');
             echo $this->em->Insert($form);
         } else {
             $form['updated_at'] = date('Y-m-d H:i:s');
-            $this->em->Update('iddocumento', $form['iddocumento'], $form);
-            echo $form['iddocumento'];
+            $this->em->Update('idendereco', $form['idendereco'], $form);
+            echo $form['idendereco'];
         }
     }
 

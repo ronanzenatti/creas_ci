@@ -80,7 +80,7 @@ class Entidades extends CI_Controller
             $row[] = $obj->telefones;
             $row[] = $obj->email;
 
-            $btns = "<a href='" . base_url('index.php/entidades/alterar/' . $obj->identidade) . "' class='btn btn-warning btn-sm'> <i class='fa fa-pencil' aria-hidden='true'></i></a> ";
+            $btns = "<a href='" . base_url('entidades/alterar/' . $obj->identidade) . "' class='btn btn-warning btn-sm'> <i class='fa fa-pencil' aria-hidden='true'></i></a> ";
             $btns .= "<button type='button' onclick='deletarRegistro(\"entidades\", " . $obj->identidade . ")' class='btn btn-danger btn-sm'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
             $row[] = $btns;
 

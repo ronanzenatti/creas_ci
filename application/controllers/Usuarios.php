@@ -91,7 +91,7 @@ class Usuarios extends CI_Controller
             $row[] = $obj->email;
             $row[] = "<button type='button' onclick='showContatos($obj->idpessoa)' class='btn btn-default btn-sm'><span class='badge'>$contatos->contatos</span></button>";
 
-            $btns = "<a href='" . base_url('index.php/usuarios/alterar/' . $obj->idpessoa) . "' class='btn btn-warning btn-sm'><i class='fa fa-pencil' aria-hidden='true'></i></a> ";
+            $btns = "<a href='" . base_url('usuarios/alterar/' . $obj->idpessoa) . "' class='btn btn-warning btn-sm'><i class='fa fa-pencil' aria-hidden='true'></i></a> ";
             $btns .= "<button type='button' onclick='deletarRegistro(\"usuarios\", " . $obj->idpessoa . ")' class='btn btn-danger btn-sm'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
             $row[] = $btns;
 

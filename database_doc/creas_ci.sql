@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Nov-2017 às 04:43
--- Versão do servidor: 10.1.22-MariaDB
+-- Generation Time: Mar 18, 2018 at 04:10 AM
+-- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,11 +21,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `creas_ci`
 --
+CREATE DATABASE IF NOT EXISTS `creas_ci` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `creas_ci`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `adolescentes`
+-- Table structure for table `adolescentes`
 --
 
 CREATE TABLE `adolescentes` (
@@ -45,7 +47,7 @@ CREATE TABLE `adolescentes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cargos`
+-- Table structure for table `cargos`
 --
 
 CREATE TABLE `cargos` (
@@ -58,16 +60,17 @@ CREATE TABLE `cargos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `cargos`
+-- Dumping data for table `cargos`
 --
 
 INSERT INTO `cargos` (`idcargo`, `nome`, `descricao`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Administrador', 'Gerencia e edita todo o sistema', '2017-11-22 01:14:32', '2017-11-22 01:14:32', NULL);
+(1, 'Administrador', 'Acesso e gestão total do sistema', '2017-11-22 11:30:11', '2017-11-22 11:30:11', NULL),
+(2, 'Assistente Social', '', '2017-11-22 11:30:21', '2017-11-22 11:30:21', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contatos`
+-- Table structure for table `contatos`
 --
 
 CREATE TABLE `contatos` (
@@ -85,7 +88,7 @@ CREATE TABLE `contatos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `documentos`
+-- Table structure for table `documentos`
 --
 
 CREATE TABLE `documentos` (
@@ -114,10 +117,17 @@ CREATE TABLE `documentos` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `documentos`
+--
+
+INSERT INTO `documentos` (`iddocumento`, `cert_nasc`, `cert_livro`, `cert_folhas`, `cert_cartorio`, `bairro_cartorio`, `municipio_cartorio`, `RG`, `RG_emissao`, `CTPS`, `CTPS_serie`, `CPF`, `titulo_eleitor`, `te_secao`, `te_zona`, `CAM`, `CDI`, `CR`, `providenciar`, `idpessoa`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 0, '', '', '', '', '', '', NULL, 0, '', '', '', 0, 0, '', '', '', '', 1, '2017-12-28 17:28:30', '2017-12-28 17:28:30', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `enderecos`
+-- Table structure for table `enderecos`
 --
 
 CREATE TABLE `enderecos` (
@@ -142,7 +152,7 @@ CREATE TABLE `enderecos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `entidades`
+-- Table structure for table `entidades`
 --
 
 CREATE TABLE `entidades` (
@@ -166,16 +176,16 @@ CREATE TABLE `entidades` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `entidades`
+-- Dumping data for table `entidades`
 --
 
 INSERT INTO `entidades` (`identidade`, `nome`, `cnpj`, `logradouro`, `numero`, `bairro`, `cidade`, `estado`, `cep`, `telefones`, `email`, `responsavel`, `resp_tel`, `resp_email`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Centro de Referência Especializado de Assistência Social - Ibitinga', '', '', '', '', 'Ibitinga', 'SP', '', '', '', 'Valquiria', '', '', '2017-11-22 01:15:16', '2017-11-22 01:15:16', NULL);
+(1, 'ETEC de Ibitinga', '', '', '', '', '', 'SP', '', '', '', 'Patricia', '', '', '2017-12-28 17:27:44', '2017-12-28 17:27:44', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `login_attempts`
+-- Table structure for table `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -188,7 +198,7 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pessoas`
+-- Table structure for table `pessoas`
 --
 
 CREATE TABLE `pessoas` (
@@ -206,33 +216,44 @@ CREATE TABLE `pessoas` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `pessoas`
+--
+
+INSERT INTO `pessoas` (`idpessoa`, `nome`, `dt_nasc`, `nome_tratamento`, `sexo`, `estado_civil`, `natural`, `obs`, `tipo_pessoa`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Administrador', NULL, '', 'O', '', NULL, '', 'F', '2017-12-28 17:26:57', '2017-12-28 17:28:27', NULL),
+(2, 'Adolescente 1', NULL, '', 'M', '', '', '', 'A', '2017-12-28 17:38:58', '2017-12-28 17:38:58', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `situacao_habitacional`
+-- Table structure for table `situacao_habitacional`
 --
 
 CREATE TABLE `situacao_habitacional` (
   `idsh` int(10) UNSIGNED NOT NULL,
-  `descricao` varchar(100) DEFAULT NULL,
-  `idtd` int(10) UNSIGNED NOT NULL COMMENT 'Tipo de Domicilio',
-  `idsd` int(10) UNSIGNED NOT NULL COMMENT 'Situação do Domicilio',
+  `tipo` char(1) DEFAULT NULL COMMENT 'Tipo de Domicilio',
+  `situacao` char(1) DEFAULT NULL COMMENT 'Situação do Domicilio',
+  `valor` decimal(12,2) DEFAULT NULL,
   `agua` char(1) DEFAULT NULL,
   `esgoto` char(1) DEFAULT NULL,
   `energia` char(1) DEFAULT NULL,
   `pavimento` char(1) DEFAULT NULL,
   `coleta_lixo` char(1) DEFAULT NULL,
   `qtde_comodos` tinyint(1) DEFAULT NULL,
+  `espaco` smallint(5) UNSIGNED DEFAULT NULL,
   `qtde_pessoas` tinyint(1) DEFAULT NULL,
   `idendereco` int(10) UNSIGNED NOT NULL,
+  `obs` text NOT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `trabalhos`
+-- Table structure for table `trabalhos`
 --
 
 CREATE TABLE `trabalhos` (
@@ -253,7 +274,7 @@ CREATE TABLE `trabalhos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -277,6 +298,13 @@ CREATE TABLE `usuarios` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`idusuario`, `ip_address`, `identidade`, `idpessoa`, `idcargo`, `salt`, `email`, `password`, `username`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `last_login`, `active`, `termo`, `data_termo`, `created_at`, `updated_at`) VALUES
+(1, '::1', 1, 1, 1, NULL, 'admin@admin.com', '$2y$08$AV2psVee/aqZyk/rYF0Hve.XHHvqYtR0mw5lsB8NCX8SWJ3giEW7.', NULL, NULL, NULL, NULL, NULL, 1518106743, 1, 0, NULL, '2017-12-28 17:28:26', '2017-12-28 17:28:26');
 
 --
 -- Indexes for dumped tables
@@ -370,7 +398,7 @@ ALTER TABLE `adolescentes`
 -- AUTO_INCREMENT for table `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `idcargo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcargo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `contatos`
 --
@@ -380,7 +408,7 @@ ALTER TABLE `contatos`
 -- AUTO_INCREMENT for table `documentos`
 --
 ALTER TABLE `documentos`
-  MODIFY `iddocumento` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `iddocumento` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `enderecos`
 --
@@ -400,7 +428,7 @@ ALTER TABLE `login_attempts`
 -- AUTO_INCREMENT for table `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `idpessoa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idpessoa` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `situacao_habitacional`
 --
@@ -415,49 +443,49 @@ ALTER TABLE `trabalhos`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `adolescentes`
+-- Constraints for table `adolescentes`
 --
 ALTER TABLE `adolescentes`
   ADD CONSTRAINT `fk_pessoas_atendidos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `contatos`
+-- Constraints for table `contatos`
 --
 ALTER TABLE `contatos`
   ADD CONSTRAINT `fk_pessoas_documentos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `documentos`
+-- Constraints for table `documentos`
 --
 ALTER TABLE `documentos`
   ADD CONSTRAINT `fk_pessoa_documentos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `enderecos`
+-- Constraints for table `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD CONSTRAINT `fk_pessoa` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `situacao_habitacional`
+-- Constraints for table `situacao_habitacional`
 --
 ALTER TABLE `situacao_habitacional`
   ADD CONSTRAINT `fk_endereco` FOREIGN KEY (`idendereco`) REFERENCES `enderecos` (`idendereco`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `trabalhos`
+-- Constraints for table `trabalhos`
 --
 ALTER TABLE `trabalhos`
   ADD CONSTRAINT `fk_pessoa_trabalhos` FOREIGN KEY (`idpessoa`) REFERENCES `pessoas` (`idpessoa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_cargo_usuario` FOREIGN KEY (`idcargo`) REFERENCES `cargos` (`idcargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,

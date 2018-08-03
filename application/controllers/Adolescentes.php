@@ -92,7 +92,7 @@ class Adolescentes extends CI_Controller
             $row[] = "<button type='button' onclick='showEnderecos($obj->idpessoa)' class='btn btn-default btn-sm'><span class='badge'>$end->enderecos</span></button>";
             $row[] = "<button type='button' onclick='showContatos($obj->idpessoa)' class='btn btn-default btn-sm'><span class='badge'>$contatos->contatos</span></button>";
 
-            $btns = "<a href='" . base_url('index.php/adolescentes/alterar/' . $obj->idpessoa) . "' class='btn btn-warning btn-sm'><i class='fa fa-pencil' aria-hidden='true'></i></a> ";
+            $btns = "<a href='" . base_url('adolescentes/alterar/' . $obj->idpessoa) . "' class='btn btn-warning btn-sm'><i class='fa fa-pencil' aria-hidden='true'></i></a> ";
             $btns .= "<button type='button' onclick='deletarRegistro(\"adolescentes\", " . $obj->idpessoa . ")' class='btn btn-danger btn-sm'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
             $row[] = $btns;
 

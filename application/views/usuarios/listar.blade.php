@@ -11,7 +11,7 @@
     {{--<li class="active">--}}
     {{--<span>Listar</span>--}}
     {{--</li>--}}
-    <a href="{{base_url('index.php/usuarios/inserir')}}" class="btn btn-success">Novo</a>
+    <a href="{{base_url('usuarios/inserir')}}" class="btn btn-success">Novo</a>
 @endsection
 
 @section('content')
@@ -39,7 +39,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{base_url('index.php/usuarios/Ajax_Datatables')}}",
+                    url: "{{base_url('usuarios/Ajax_Datatables')}}",
                     type: "POST"
                 },
                 pagingType: "full_numbers",
@@ -84,7 +84,7 @@
             });
         });
 
-        url = "{{base_url() . "index.php/"}}";
+        url = "{{base_url() . ""}}";
 
         function showContatos(idP) {
             $('#modalShow').modal({

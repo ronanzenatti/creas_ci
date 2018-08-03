@@ -19,6 +19,11 @@ $(document).ready(function () {
     $('.mask_phone8').mask('(99) 9999-9999');
     $('.mask_CNPJ').mask('99.999.999/9999-99');
     $('.mask_CPF').mask('999.999.999-99');
+	$('.mask_3dig').mask('000');
+	$("#mask_phone").mask({
+		mask: ["(99) 9999-9999", "(99) 99999-9999", ],
+		keepStatic: true
+	});
 
     $('.mask_fone').focusout(function () {
         var phone, element;
@@ -28,7 +33,7 @@ $(document).ready(function () {
         if (phone.length > 10) {
             element.mask("(99) 9 9999-9999");
         } else {
-            element.mask("(99) 9999-9999?9");
+            element.mask("(99) 9999-99990");
         }
     }).trigger('focusout');
 

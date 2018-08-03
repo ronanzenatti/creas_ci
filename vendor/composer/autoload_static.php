@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit6c7077a29056d65e8531cfd91a9c4d5c
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e1edc6b39e340029dfa1d72c228b8497' => __DIR__ . '/..' . '/xiaoler/blade/src/helpers.php',
     );
@@ -26,6 +27,7 @@ class ComposerStaticInit6c7077a29056d65e8531cfd91a9c4d5c
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
         ),
         'D' => 
@@ -39,8 +41,8 @@ class ComposerStaticInit6c7077a29056d65e8531cfd91a9c4d5c
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Xiaoler\\Blade\\' => 
         array (
@@ -49,6 +51,10 @@ class ComposerStaticInit6c7077a29056d65e8531cfd91a9c4d5c
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (

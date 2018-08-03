@@ -37,7 +37,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{base_url('index.php/situacao_habitacional/Ajax_Datatables')}}",
+                    url: "{{base_url('situacao_habitacional/Ajax_Datatables')}}",
                     type: "POST"
                 },
                 pagingType: "full_numbers",
@@ -82,7 +82,7 @@
             });
         });
 
-        url = "{{base_url() . "index.php/"}}";
+        url = "{{base_url() . ""}}";
 
         function showContatos(idP) {
             $('#modalShow').modal({

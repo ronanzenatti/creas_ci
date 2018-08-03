@@ -5,7 +5,7 @@
 {{--@section('title_panel', 'Cadastrar um novo Cargo.')--}}
 
 @section('breadcrumb')
-    <a href="{{base_url('index.php/usuarios')}}" class="btn btn-default" id="voltar" name="voltar">
+    <a href="{{base_url('usuarios')}}" class="btn btn-default" id="voltar" name="voltar">
         <i class="fa fa-reply"></i> Voltar</a> &nbsp;
     <button type="button" onclick="salvar()" class="btn btn-success">Salvar <i class="fa fa-save"></i></button>
 @endsection
@@ -383,7 +383,7 @@
         $("#idcargo").val("{{$objU['idcargo']}}").trigger('change');
         @endif
 
-            url = "{{base_url() . "index.php/"}}";
+            url = "{{base_url() . ""}}";
 
         //        ------------------------------------------------------------------------------------------------------
         $(function () {

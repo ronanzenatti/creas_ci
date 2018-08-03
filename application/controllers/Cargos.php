@@ -69,7 +69,7 @@ class Cargos extends CI_Controller
             $row[] = $obj->descricao;
             $row[] = date('d/m/Y H:i:s', strtotime($obj->created_at));
 
-            $btns = "<a href='" . base_url('index.php/cargos/alterar/' . $obj->idcargo) . "' class='btn btn-warning btn-sm'> <i class='fa fa-pencil' aria-hidden='true'></i></a> ";
+            $btns = "<a href='" . base_url('cargos/alterar/' . $obj->idcargo) . "' class='btn btn-warning btn-sm'> <i class='fa fa-pencil' aria-hidden='true'></i></a> ";
             $btns .= "<button type='button' onclick='deletarRegistro(\"cargos\", " . $obj->idcargo . ")' class='btn btn-danger btn-sm'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
             $row[] = $btns;
 

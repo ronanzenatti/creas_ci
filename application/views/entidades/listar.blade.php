@@ -11,7 +11,7 @@
     {{--<li class="active">--}}
     {{--<span>Listar</span>--}}
     {{--</li>--}}
-    <a href="{{base_url('index.php/entidades/inserir')}}" class="btn btn-success">Novo</a>
+    <a href="{{base_url('entidades/inserir')}}" class="btn btn-success">Novo</a>
 @endsection
 
 @section('content')
@@ -39,7 +39,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{base_url('index.php/entidades/Ajax_Datatables')}}",
+                    url: "{{base_url('entidades/Ajax_Datatables')}}",
                     type: "POST"
                 },
                 pagingType: "full_numbers",

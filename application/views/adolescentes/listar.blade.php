@@ -3,7 +3,7 @@
 @section('titulo_pagina', 'Listar Adolescentes')
 
 @section('breadcrumb')
-    <a href="{{base_url('index.php/adolescentes/inserir')}}" class="btn btn-success">Novo</a>
+    <a href="{{base_url('adolescentes/inserir')}}" class="btn btn-success">Novo</a>
 @endsection
 
 @section('content')
@@ -32,9 +32,10 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{base_url('index.php/adolescentes/Ajax_Datatables')}}",
+                    url: "{{base_url('adolescentes/Ajax_Datatables')}}",
                     type: "POST"
                 },
+				order: [[ 1, "asc" ]],
                 pagingType: "full_numbers",
                 columnDefs: [
                     {targets: [4, 5, 6], orderable: false,},
@@ -77,7 +78,7 @@
             });
         });
 
-        url = "{{base_url() . "index.php/"}}";
+        url = "{{base_url() . ""}}";
 
         function showContatos(idP) {
             $('#modalShow').modal({
